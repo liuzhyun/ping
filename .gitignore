@@ -281,3 +281,4 @@ $RECYCLE.BIN/
 *.lnk
 duilib/DuiLib/DuiLib.vcxproj
 duilib/DuiLib/DuiLib.vcxproj.filters
+lib/
