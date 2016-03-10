@@ -5,12 +5,18 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ping", "ping\ping.vcxproj", "{5A60B71F-378A-4439-BC81-DA345DBEEFBE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DuiLib", "duilib\DuiLib\DuiLib.vcxproj", "{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
+		UnicodeDebug|x64 = UnicodeDebug|x64
+		UnicodeDebug|x86 = UnicodeDebug|x86
+		UnicodeRelease|x64 = UnicodeRelease|x64
+		UnicodeRelease|x86 = UnicodeRelease|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5A60B71F-378A-4439-BC81-DA345DBEEFBE}.Debug|x64.ActiveCfg = Debug|x64
@@ -21,6 +27,26 @@ Global
 		{5A60B71F-378A-4439-BC81-DA345DBEEFBE}.Release|x64.Build.0 = Release|x64
 		{5A60B71F-378A-4439-BC81-DA345DBEEFBE}.Release|x86.ActiveCfg = Release|Win32
 		{5A60B71F-378A-4439-BC81-DA345DBEEFBE}.Release|x86.Build.0 = Release|Win32
+		{5A60B71F-378A-4439-BC81-DA345DBEEFBE}.UnicodeDebug|x64.ActiveCfg = Debug|x64
+		{5A60B71F-378A-4439-BC81-DA345DBEEFBE}.UnicodeDebug|x64.Build.0 = Debug|x64
+		{5A60B71F-378A-4439-BC81-DA345DBEEFBE}.UnicodeDebug|x86.ActiveCfg = Debug|Win32
+		{5A60B71F-378A-4439-BC81-DA345DBEEFBE}.UnicodeDebug|x86.Build.0 = Debug|Win32
+		{5A60B71F-378A-4439-BC81-DA345DBEEFBE}.UnicodeRelease|x64.ActiveCfg = Release|x64
+		{5A60B71F-378A-4439-BC81-DA345DBEEFBE}.UnicodeRelease|x64.Build.0 = Release|x64
+		{5A60B71F-378A-4439-BC81-DA345DBEEFBE}.UnicodeRelease|x86.ActiveCfg = Release|Win32
+		{5A60B71F-378A-4439-BC81-DA345DBEEFBE}.UnicodeRelease|x86.Build.0 = Release|Win32
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.Debug|x64.ActiveCfg = Debug|Win32
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.Debug|x86.ActiveCfg = Debug|Win32
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.Debug|x86.Build.0 = Debug|Win32
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.Release|x64.ActiveCfg = Release|Win32
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.Release|x86.ActiveCfg = Release|Win32
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.Release|x86.Build.0 = Release|Win32
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.UnicodeDebug|x64.ActiveCfg = UnicodeDebug|Win32
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.UnicodeDebug|x86.ActiveCfg = UnicodeDebug|Win32
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.UnicodeDebug|x86.Build.0 = UnicodeDebug|Win32
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.UnicodeRelease|x64.ActiveCfg = UnicodeRelease|Win32
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.UnicodeRelease|x86.ActiveCfg = UnicodeRelease|Win32
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.UnicodeRelease|x86.Build.0 = UnicodeRelease|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
