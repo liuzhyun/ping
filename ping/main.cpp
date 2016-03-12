@@ -8,7 +8,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPTSTR lp
 #endif
 {
 	CPaintManagerUI::SetInstance(hInstance);
-	CPaintManagerUI::SetResourcePath(CPaintManagerUI::GetInstancePath());
+	CPaintManagerUI::SetResourcePath(CPaintManagerUI::GetInstancePath() + _T("\skin"));
 
 #if defined(WIN32) && !defined(UNDER_CE)
 	HRESULT Hr = ::CoInitialize(NULL);

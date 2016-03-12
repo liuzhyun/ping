@@ -30,12 +30,11 @@ LRESULT CMainFrame::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 	{
 		m_PaintManager.Init(m_hWnd);
 
-		CControlUI* pBut = new CButtonUI();
-		pBut->SetText(_T("Button"));
-		pBut->SetName(_T("closebtn"));
-		pBut->SetBkColor(0xFF00FF00);
+        CDialogBuilder builder;
+        CControlUI* pRoot = builder.Create(_T("skin.xml"), 0, 0, &m_PaintManager);
+        ASSERT(pRoot && "Failed to parse XML");
 
-		m_PaintManager.AttachDialog(pBut);
+		m_PaintManager.AttachDialog(pRoot);
 		m_PaintManager.AddNotifier(this);
 
 		return lRes;
