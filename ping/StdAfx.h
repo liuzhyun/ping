@@ -7,6 +7,7 @@
 #include <objbase.h>
 
 #include "..\duilib\DuiLib\UIlib.h"
+#include "..\duilib\DuiLib\Utils\WinImplBase.h"
 
 using namespace DuiLib;
 

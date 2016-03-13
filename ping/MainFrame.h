@@ -1,17 +1,20 @@
 #pragma once
 #include "StdAfx.h"
+#include "WinBase.h"
 
-class CMainFrame : public CWindowWnd, public INotifyUI
+class CMainFrame : public WinBase
 {
 public:
 	CMainFrame();
 	~CMainFrame();
 
-	virtual LPCTSTR GetWindowClassName() const;
-	virtual void Notify(TNotifyUI& msg);
-	virtual LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam);
+    virtual void InitWindow();
+    virtual void OnClick(TNotifyUI& msg);
+    virtual void Notify(TNotifyUI& msg);
+    virtual CDuiString GetSkinFile();
+    virtual LPCTSTR GetWindowClassName(void) const;
 
-protected:
-	CPaintManagerUI m_PaintManager;
+private:
+    bool    m_bIsFirstClickEdit = true;
 };
 

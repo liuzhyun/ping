@@ -158,13 +158,17 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainFrame.cpp" />
+    <ClCompile Include="WinBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainFrame.h" />
     <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="WinBase.h" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\skin\skin.xml" />
+    <Xml Include="..\skin\skin.xml">
+      <SubType>Designer</SubType>
+    </Xml>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,5 +1,8 @@
 #include "MainFrame.h"
 
+const TCHAR* const kEditControlName = _T("domain");
+const TCHAR* const kPingButtonControlName = _T("ping");
+
 CMainFrame::CMainFrame()
 {
 }
@@ -8,53 +11,50 @@ CMainFrame::~CMainFrame()
 {
 }
 
+CDuiString CMainFrame::GetSkinFile()
+{
+    return _T("skin.xml");
+}
+
 LPCTSTR CMainFrame::GetWindowClassName() const
 {
 	return _T("MainFrame"); 
 }
 
-void CMainFrame::Notify(TNotifyUI& msg)
+void CMainFrame::InitWindow()
 {
-	if (msg.sType == _T("click"))
-	{
-		if (msg.pSender->GetName() == _T("closebtn"))
-			Close();
-	}
+    
 }
 
-LRESULT CMainFrame::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
+void CMainFrame::OnClick(TNotifyUI& msg)
 {
-	LRESULT lRes = 0;
+    if (msg.pSender->GetName() == kPingButtonControlName)
+    {
+        CControlUI* pEdit = static_cast<CControlUI*>(m_PaintManager.FindControl(kEditControlName));
+        if (!pEdit) return;
 
-	if (uMsg == WM_CREATE)
-	{
-		m_PaintManager.Init(m_hWnd);
+        if(pEdit->GetText().IsEmpty())
+            ::MessageBox(GetHWND(), _T("请输入你想ping的域名！"), _T("警告"), 0);
 
-        CDialogBuilder builder;
-        CControlUI* pRoot = builder.Create(_T("skin.xml"), 0, 0, &m_PaintManager);
-        ASSERT(pRoot && "Failed to parse XML");
+        return;
+    }
 
-		m_PaintManager.AttachDialog(pRoot);
-		m_PaintManager.AddNotifier(this);
+    __super::OnClick(msg);
+}
 
-		return lRes;
-	}
-	else if (uMsg == WM_DESTROY)
-		::PostQuitMessage(0);
+void CMainFrame::Notify(TNotifyUI& msg)
+{
+    if (msg.sType == DUI_MSGTYPE_SETFOCUS)
+    {
+        if (msg.pSender->GetName() == kEditControlName && m_bIsFirstClickEdit)
+        {
+            m_bIsFirstClickEdit = false;
+            DWORD dColor = ((CEditUI*)msg.pSender)->GetTextColor();
+            ((CEditUI*)msg.pSender)->SetTextColor(((CEditUI*)msg.pSender)->GetDisabledTextColor());
+            ((CEditUI*)msg.pSender)->SetDisabledTextColor(dColor);
+            msg.pSender->SetText(_T(""));
+        }
+    }
 
-	// WM_NCACTIVATE、WM_NCCALCSIZE、WM_NCPAINT用于屏蔽系统标题栏
-	else if (uMsg == WM_NCACTIVATE)
-	{
-		if (!::IsIconic(m_hWnd)) //判断窗口是否为最小化 return 最小化为0，否则非0
-			return (wParam == 0) ? TRUE : FALSE;
-	}
-	else if (uMsg == WM_NCCALCSIZE)
-		return 0;
-	else if (uMsg == WM_NCPAINT)
-		return 0;
-
-	if (m_PaintManager.MessageHandler(uMsg, wParam, lParam, lRes))
-		return lRes;
-
-	return __super::HandleMessage(uMsg, wParam, lParam);
+    __super::Notify(msg);
 }

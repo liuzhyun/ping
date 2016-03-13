@@ -16,6 +16,9 @@
     <Filter Include="skin">
       <UniqueIdentifier>{56cb5fd9-9122-4f76-8dda-7bd09f6b37da}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{c864463b-62a0-4550-b5ac-7bcb3817075d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -24,6 +27,9 @@
     <ClCompile Include="MainFrame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WinBase.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StdAfx.h">
@@ -31,6 +37,9 @@
     </ClInclude>
     <ClInclude Include="MainFrame.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WinBase.h">
+      <Filter>UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

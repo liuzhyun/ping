@@ -1,6 +1,48 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Window Size="800,600">
-    <HorizontalLayout bkcolor="#FF00FF00">
-        <Button name="closebtn" text="Hello World"/>
-    </HorizontalLayout>
+<?xml version="1.0" encoding="UTF-8"?>
+<Window size="500,400" mininfo="500,400" caption="0,0,0,32" sizebox="4,4,4,4">
+    <Font id="0" name="微软雅黑" size="14" default="true"/>
+    <Font id="1" name="微软雅黑" size="12"/>
+    <!-- 窗口的初始尺寸(宽800，高600)、窗口的最小尺寸(宽600，高400)、标题栏拖拽区域(高32)、可拖拽边框大小(这里添加sizebox后就可以拖拽边框调整大小了) -->
+    <VerticalLayout bkcolor="#FFF0F0F0" bkcolor2="#FFAAAAA0">
+        <!-- 整个窗口的背景色 -->
+        <!-- 标题栏区 -->
+        <HorizontalLayout height="32" bkcolor="#FFE6E6DC" bkcolor2="#FFAAAAA0">
+            <!-- 标题栏背景色 bkcolor、bkcolor2、bkcolor3分别是渐变色的三个值-->
+            <VerticalLayout />
+            <!-- 占空位，占据左边所有的空位-->
+            <VerticalLayout width="77">
+                <!-- 右边三个控件所占的宽度-->
+                <Button name="minbtn"   tooltip="最小化" float="true" pos="0,5,22,24"  width="23" normalimage=" file='.\MinNormal.bmp' " hotimage=" file='.\MinFocus.bmp' " pushedimage=" file='.\MinFocus.bmp' "/>
+                <Button name="maxbtn"   tooltip="最大化" float="true" pos="22,5,44,24" width="23" normalimage=" file='.\MaxNormal.bmp' " hotimage=" file='.\MaxFocus.bmp' " pushedimage=" file='.\MaxFocus.bmp' " />
+                <Button name="restorebtn" visible="false" tooltip="还原" float="true" pos="22,5,44,24" width="23" normalimage=" file='.\StoreNormal.bmp' " hotimage=" file='.\StoreFocus.bmp' " pushedimage=" file='.\StoreFocus.bmp' " />
+                <Button name="closebtn" tooltip="关闭"   float="true" pos="44,5,74,24" width="28" normalimage=" file='.\CloseNormal.bmp' " hotimage=" file='.\CloseFocus.bmp' " pushedimage=" file='.\CloseFocus.bmp' "/>
+            </VerticalLayout>
+        </HorizontalLayout>
+
+        <!-- 客户区 -->
+        <VerticalLayout>
+            <HorizontalLayout height="60" inset="40,15,40,15">
+                <Label text="请输入域名：" font="0" width="80"/>
+                <Control width="15"/>
+                <Edit name="domain" text="baidu.com" textcolor="#FFA9A9AA" disabledtextcolor="#FF000000"/>
+                <Control width="15"/>
+                <Button name="ping" text="ping 一下" width="120" bkcolor="#FFA9A9DC" bkcolor2="#FF9898AA"/>
+            </HorizontalLayout>
+            <HorizontalLayout height="5" inset="20,0,20,0">
+                <Progress height="5" min="0" max="100" hor="true" foreimage="progress_fore.png"/>
+            </HorizontalLayout>
+            <HorizontalLayout inset="20,0,20,15">
+                <List bkcolor="#FFFFFFFF" vscrollbar="true" itemfont="0">
+                    <ListHeader bkimage="list_header_bg.png">
+                        <ListHeaderItem width="300" text="命令" sepimage="list_header_sep.png" sepwidth="1"/>
+                        <ListHeaderItem width="120" text="结果" sepimage="list_header_sep.png" sepwidth="1"/>
+                    </ListHeader>
+                </List>
+            </HorizontalLayout>
+            <VerticalLayout height="60" inset="40,0,20,0">
+                <Label height="20" text="1.在输入框输入域名后点击“ping 一下”开始测试。" font="1"/>
+                <Label height="20" text="2.测试完成后，把桌面的“Net.log”文件发送给客服。" font="1"/>
+            </VerticalLayout>
+        </VerticalLayout>
+    </VerticalLayout>
 </Window>
