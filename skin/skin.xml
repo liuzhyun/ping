@@ -29,10 +29,10 @@
                 <Button name="ping" text="ping 一下" width="120" bkcolor="#FFA9A9DC" bkcolor2="#FF9898AA"/>
             </HorizontalLayout>
             <HorizontalLayout height="5" inset="20,0,20,0">
-                <Progress height="5" min="0" max="100" hor="true" foreimage="progress_fore.png"/>
+                <Progress name="progress" height="5" min="0" max="100" hor="true" foreimage="progress_fore.png"/>
             </HorizontalLayout>
             <HorizontalLayout inset="20,0,20,15">
-                <List bkcolor="#FFFFFFFF" vscrollbar="true" itemfont="0">
+                <List name="outList" bkcolor="#FFFFFFFF" vscrollbar="true" itemfont="0" itemaltbk="true" itembkcolor="#FFFCFCFC">
                     <ListHeader bkimage="list_header_bg.png">
                         <ListHeaderItem width="300" text="命令" sepimage="list_header_sep.png" sepwidth="1"/>
                         <ListHeaderItem width="120" text="结果" sepimage="list_header_sep.png" sepwidth="1"/>

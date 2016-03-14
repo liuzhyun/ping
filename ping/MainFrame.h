@@ -16,5 +16,7 @@ public:
 
 private:
     bool    m_bIsFirstClickEdit = true;
+    CListUI*    m_pList;
+    CProgressUI* m_pProgress;
 };
 

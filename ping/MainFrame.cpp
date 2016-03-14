@@ -2,6 +2,8 @@
 
 const TCHAR* const kEditControlName = _T("domain");
 const TCHAR* const kPingButtonControlName = _T("ping");
+const TCHAR* const kProgressControlName = _T("progress");
+const TCHAR* const kOutListControlName = _T("outList");
 
 CMainFrame::CMainFrame()
 {
@@ -23,7 +25,11 @@ LPCTSTR CMainFrame::GetWindowClassName() const
 
 void CMainFrame::InitWindow()
 {
-    
+
+    m_pList = static_cast<CListUI*>(m_PaintManager.FindControl(kOutListControlName));
+    if (!m_pList) return;
+    m_pProgress = static_cast<CProgressUI*>(m_PaintManager.FindControl(kProgressControlName));
+    if (m_pProgress) return;
 }
 
 void CMainFrame::OnClick(TNotifyUI& msg)
@@ -35,6 +41,15 @@ void CMainFrame::OnClick(TNotifyUI& msg)
 
         if(pEdit->GetText().IsEmpty())
             ::MessageBox(GetHWND(), _T("请输入你想ping的域名！"), _T("警告"), 0);
+
+        static int index = 0;
+        CListTextElementUI* pListElement = new CListTextElementUI;
+        pListElement->SetOwner(m_pList);
+        pListElement->SetText(0, pEdit->GetText());
+        pListElement->SetText(1, _T("成功"));
+        if (pListElement) m_pList->Add(pListElement);
+
+        m_pProgress->SetValue(index++);
 
         return;
     }
