@@ -45,8 +45,8 @@ void CMainFrame::OnClick(TNotifyUI& msg)
         static int index = 0;
         CListTextElementUI* pListElement = new CListTextElementUI;
         pListElement->SetOwner(m_pList);
-        pListElement->SetText(0, pEdit->GetText());
-        pListElement->SetText(1, _T("成功"));
+        pListElement->SetText(1, pEdit->GetText());
+        pListElement->SetText(2, _T("成功"));
         if (pListElement) m_pList->Add(pListElement);
 
         m_pProgress->SetValue(index++);
