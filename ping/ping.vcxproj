@@ -158,11 +158,13 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainFrame.cpp" />
+    <ClCompile Include="SysConsole.cpp" />
     <ClCompile Include="WinBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainFrame.h" />
     <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="SysConsole.h" />
     <ClInclude Include="WinBase.h" />
   </ItemGroup>
   <ItemGroup>

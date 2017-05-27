@@ -283,3 +283,5 @@ duilib/DuiLib/DuiLib.vcxproj
 duilib/DuiLib/DuiLib.vcxproj.filters
 lib/
 ping.VC.opendb
+*.db
+ping.VC.VC.opendb

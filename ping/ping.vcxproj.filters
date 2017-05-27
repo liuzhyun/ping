@@ -30,6 +30,9 @@
     <ClCompile Include="WinBase.cpp">
       <Filter>UI</Filter>
     </ClCompile>
+    <ClCompile Include="SysConsole.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StdAfx.h">
@@ -40,6 +43,9 @@
     </ClInclude>
     <ClInclude Include="WinBase.h">
       <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="SysConsole.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
