@@ -79,14 +79,12 @@ void CMainFrame::OnClick(TNotifyUI& msg)
 		}
         SetTimer(m_hWnd, 1, 100, NULL);
 
-        static int index = 0;
         CListTextElementUI* pListElement = new CListTextElementUI;
         pListElement->SetOwner(m_pList);
         pListElement->SetText(1, pEdit->GetText());
-        pListElement->SetText(2, _T("成功"));
         if (pListElement) m_pList->Add(pListElement);
 
-        m_pProgress->SetValue(index++);
+        m_pProgress->SetValue(10);
 
         return;
     }
@@ -132,8 +130,14 @@ HRESULT CMainFrame::OnTimer(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHand
     if (!strTemp.IsEmpty())
         WriteStringToFile(strTemp);
 
-    if (!bKillTime)
-        KillTimer(m_hWnd, 1);
+	if (!bKillTime) 
+	{
+		KillTimer(m_hWnd, 1);
+		CListTextElementUI* pListElement = (CListTextElementUI*)m_pList->GetItemAt(0);
+		pListElement->SetText(2, _T("成功"));
+		m_pProgress->SetValue(100);
+		::MessageBox(GetHWND(), _T("测试完成，请检查桌面net.log文件！"), _T("提示"), 0);
+	}
 
     bHandled = TRUE;
     return 0;
