@@ -279,8 +279,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-duilib/DuiLib/DuiLib.vcxproj
-duilib/DuiLib/DuiLib.vcxproj.filters
 lib/
 ping.VC.opendb
 *.db

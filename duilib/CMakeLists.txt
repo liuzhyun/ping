@@ -1,27 +1,25 @@
-# CMake root file for duilib related apps
-#Date 2012-09-16
-#Author: Qi Gao(monkgau@gmail.com)
-#
-#  CMake files for duilib
-#  file for each app is under the related sub-dir
-#
+# cmake file for duilib
+#Author Qi Gao(monkgau@gmail.com)
+#Created: 2012/09/16
 
-cmake_minimum_required(VERSION 2.8)
+aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR} Root_src)
+aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/Control Control_src)
+aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/Core Core_src)
+aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/Layout Layout_src)
+aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/Utils Utils_src)
 
-project(dui)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/Control)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/Core)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/Layout)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/Utils)
 
-message(STATUS," CMake project files for duilib")
+set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
+add_library(duilib SHARED ${Control_src} ${Core_src} ${Layout_src} ${Utils_src} ${Root_src})
 
-# this line is for UNICODE release,which is required by DuiDesigner 
-add_definitions(-DUNICODE -D_UNICODE)
-
-# add each CMake file
-add_subdirectory(duilib)
-add_subdirectory(DuiDesigner)
-add_subdirectory(360SafeDemo)
-add_subdirectory(FlashDemo)
-add_subdirectory(GameDemo)
-add_subdirectory(ListDemo)
-add_subdirectory(MenuDemo)
-add_subdirectory(QQDemo)
-add_subdirectory(RichListDemo)
+add_definitions(-DUILIB_EXPORTS)
+target_link_libraries(duilib comctl32)
+set_target_properties(duilib PROPERTIES OUTPUT_NAME "duilib")
+add_custom_command(TARGET duilib POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different
+  ${PROJECT_BINARY_DIR}/lib/duilib.dll ${PROJECT_SOURCE_DIR}/bin/duilib.dll)
